@@ -282,7 +282,7 @@ export function DataTable({
             {/* Cards for small screens */}
             <div className="block md:hidden space-y-3">
                 {data.map((row: any) => (
-                    <div key={row.id} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+                    <div key={row.id} className=" rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
                         {/* Header with image and title */}
                         <div className="flex items-start gap-3 mb-4">
                             {row.images?.length > 0 && (
@@ -309,10 +309,10 @@ export function DataTable({
 
                                     return (
                                         <div key={col.id || col.accessorKey} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-                                            <span className="text-sm font-medium text-gray-600">
+                                            <span className="text-sm font-medium ">
                                                 {typeof col.header === "string" ? col.header : col.header}
                                             </span>
-                                            <span className="text-sm text-gray-900 text-right max-w-[60%] truncate">
+                                            <span className="text-sm text-right max-w-[60%] truncate">
                                                 {value}
                                             </span>
                                         </div>

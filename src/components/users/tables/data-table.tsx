@@ -1,185 +1,3 @@
-// "use client";
-
-// import { Input } from "@/components/ui/input";
-// import {
-//     flexRender,
-//     getCoreRowModel,
-//     useReactTable,
-// } from "@tanstack/react-table";
-// import {
-//     Pagination,
-//     PaginationContent,
-//     PaginationItem,
-//     PaginationLink,
-//     PaginationNext,
-//     PaginationPrevious,
-// } from "@/components/ui/pagination";
-// import DataTableRowActions from "./DataTableRowActions";
-
-
-// interface DataTableProps {
-//     columns: any[];
-//     data: any[];
-//     pagination: {
-//         current_page: number;
-//         total_pages: number;
-//         has_prev: boolean;
-//         has_next: boolean;
-//     };
-//     onPageChange: (page: number) => void;
-//     onSearch: (value: string) => void;
-//     onRoleFilter: (value: string) => void; // إضافة فلترة الدور
-//     onDelete: (data: any) => void;
-//     onDetails: (data: any) => void;
-//     onEdit: (data: any) => void;
-//     onEditPer: (data: any) => void;
-// }
-
-// export function DataTable({
-//     columns,
-//     data,
-//     pagination,
-//     onPageChange,
-//     onSearch,
-//     onRoleFilter,
-//     onDelete,
-//     onDetails,
-//     onEdit,
-//     onEditPer
-// }: DataTableProps) {
-//     const table = useReactTable({
-//         data,
-//         columns,
-//         getCoreRowModel: getCoreRowModel(),
-//     });
-
-//     return (
-//         <div className="w-full">
-//             {/* Search and Filters */}
-//             <div className="py-3 flex flex-col sm:flex-row gap-3">
-//                 <Input
-//                     placeholder="Search by username..."
-//                     onChange={(e) => onSearch(e.target.value)}
-//                     className="max-w-sm"
-//                 />
-//                 {/* <Select onValueChange={onRoleFilter}>
-//                     <SelectTrigger className="w-[180px]">
-//                         <SelectValue placeholder="Filter by role" />
-//                     </SelectTrigger>
-//                     <SelectContent>
-//                         <SelectItem value="0">Admin</SelectItem>
-//                         <SelectItem value="1">Staff</SelectItem>
-//                     </SelectContent>
-//                 </Select> */}
-//             </div>
-
-//             {/* Table for medium+ screens */}
-//             <div className="hidden md:block">
-//                 <table className="w-full border rounded">
-//                     <thead>
-//                         {table.getHeaderGroups().map((headerGroup) => (
-//                             <tr key={headerGroup.id} className="border-b">
-//                                 {headerGroup.headers.map((header) => (
-//                                     <th key={header.id} className="p-2 text-left">
-//                                         {header.isPlaceholder
-//                                             ? null
-//                                             : flexRender(header.column.columnDef.header, header.getContext())}
-//                                     </th>
-//                                 ))}
-//                             </tr>
-//                         ))}
-//                     </thead>
-//                     <tbody>
-//                         {table.getRowModel().rows.map((row) => (
-//                             <tr key={row.id} className="border-b ">
-//                                 {row.getVisibleCells().map((cell) => (
-//                                     <td key={cell.id} className="p-2">
-//                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
-//                                     </td>
-//                                 ))}
-//                             </tr>
-//                         ))}
-//                     </tbody>
-//                 </table>
-//             </div>
-
-//             {/* Cards for small screens */}
-//             <div className="block md:hidden space-y-3">
-//                 {data.map((row: any) => (
-//                     <div key={row.id} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
-//                         {/* Data fields - compact layout */}
-//                         <div className="space-y-3">
-//                             {columns
-//                                 .filter(col => col.id !== "actions")
-//                                 .map((col: any) => {
-//                                     const value = row[col.accessorKey];
-//                                     if (!value) return null;
-
-//                                     return (
-//                                         <div key={col.id || col.accessorKey} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-//                                             <span className="text-sm font-medium text-gray-600">
-//                                                 {typeof col.header === "string" ? col.header : col.header}
-//                                             </span>
-//                                             <span className="text-sm text-gray-900 text-right max-w-[60%] truncate">
-//                                                 {value}
-//                                             </span>
-//                                         </div>
-//                                     );
-//                                 })}
-//                         </div>
-
-//                         {/* Actions */}
-//                         <div className="flex justify-end mt-4 pt-3 border-t border-gray-100">
-//                             <DataTableRowActions
-//                                 data={row}
-//                                 onDelete={onDelete}
-//                                 onDetails={onDetails}
-//                                 onEdit={onEdit}
-//                                 onEditPer={onEditPer}
-//                             />
-//                         </div>
-//                     </div>
-//                 ))}
-//             </div>
-
-//             {/* No data message */}
-//             {data.length === 0 && (
-//                 <div className="text-center py-8 text-gray-500">
-//                     No users found
-//                 </div>
-//             )}
-
-//             {/* Pagination */}
-//             {pagination.total_pages > 1 && (
-//                 <div className="flex justify-center py-6">
-//                     <Pagination>
-//                         <PaginationContent>
-//                             <PaginationItem>
-//                                 <PaginationPrevious
-//                                     onClick={() => pagination.has_prev && onPageChange(pagination.current_page - 1)}
-//                                     className={!pagination.has_prev ? "pointer-events-none opacity-50" : "cursor-pointer"}
-//                                 />
-//                             </PaginationItem>
-
-//                             <PaginationItem>
-//                                 <PaginationLink isActive>
-//                                     {pagination.current_page} / {pagination.total_pages}
-//                                 </PaginationLink>
-//                             </PaginationItem>
-
-//                             <PaginationItem>
-//                                 <PaginationNext
-//                                     onClick={() => pagination.has_next && onPageChange(pagination.current_page + 1)}
-//                                     className={!pagination.has_next ? "pointer-events-none opacity-50" : "cursor-pointer"}
-//                                 />
-//                             </PaginationItem>
-//                         </PaginationContent>
-//                     </Pagination>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// }
 "use client";
 
 import { Input } from "@/components/ui/input";
@@ -286,7 +104,7 @@ export function DataTable({
             {/* Cards for small screens */}
             <div className="block md:hidden space-y-3">
                 {data.map((row: any) => (
-                    <div key={row.id} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
+                    <div key={row.id} className="rounded-2xl border border-gray-100 p-4 shadow-sm hover:shadow-md transition-all duration-200">
                         {/* Data fields - compact layout */}
                         <div className="space-y-3">
                             {columns
@@ -294,13 +112,16 @@ export function DataTable({
                                 .map((col: any) => {
                                     const value = row[col.accessorKey];
                                     if (!value) return null;
-
                                     return (
                                         <div key={col.id || col.accessorKey} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0">
-                                            <span className="text-sm font-medium text-gray-600">
-                                                {typeof col.header === "function" ? "Header" : col.header}
+                                            <span className="text-sm font-medium">
+                                                {typeof col.header === "string"
+                                                    ? col.header
+                                                    : typeof col.header === "function"
+                                                        ? col.header()
+                                                        : col.header}
                                             </span>
-                                            <span className="text-sm text-gray-900 text-right max-w-[60%] truncate">
+                                            <span className="text-sm  text-right max-w-[60%] truncate">
                                                 {value}
                                             </span>
                                         </div>
