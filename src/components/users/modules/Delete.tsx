@@ -126,7 +126,7 @@ export default function DeleteUser({ isOpen, onOpenChange, userId }: DeleteUserP
             const res = await deleteUser(userId);
             const result = handleApiResponse(res);
             if (result.success) {
-                toast.success(t('users.delete.success'));
+                toast.success(result.error)
                 onOpenChange(false);
             } else {
                 toast.error(result.error || t('users.delete.error'));

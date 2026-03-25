@@ -220,7 +220,7 @@ export default function TableUsers() {
             )}
 
             <DataTable
-                columns={columns(onDelete, onDetails, onEdit, onEditPer, canDeleteUSERS, canEditUSERS, canViewUSERS, canSetPermissionsUSERS,t)}
+                columns={columns(onDelete, onDetails, onEdit, onEditPer, canDeleteUSERS, canEditUSERS, canViewUSERS, canSetPermissionsUSERS, t)}
                 data={usersData}
                 pagination={pagination}
                 onPageChange={setPage}
@@ -232,6 +232,7 @@ export default function TableUsers() {
                     setRole(value);
                     setPage(1);
                 }}
+                onDetails={onDetails}
             />
         </div>
     );

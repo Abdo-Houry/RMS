@@ -799,7 +799,7 @@ export default function SetUserPermissions({ isOpen, onOpenChange, userId }: Set
             const result = handleApiResponse(res);
 
             if (result.success) {
-                toast.success(t('users.permissions.success.update'));
+                toast.success(result.error)
                 handleClose();
             } else {
                 toast.error(result.error || t('users.permissions.error.updateFailed'));

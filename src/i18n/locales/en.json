@@ -63,6 +63,7 @@
 			"imagesLabel": "Article Images",
 			"removeAll": "Remove All",
 			"clickToUpload": "Click to upload images",
+			"clickToUploadVideos": "Click to upload Videos",
 			"uploadHelp": "Supports: PNG, JPG, JPEG • Max: 5MB each • Max: 10 images",
 			"imagesPreview": "Images Preview",
 			"selectedImages": "{{count}} image",
@@ -693,6 +694,8 @@
 		},
 		 "add": {
 			"title": "Add New Machine",
+			 "machineDescription": "Machine Description",
+            "machineDescriptionPlaceholder": "Enter detailed machine description...",
 			"subtitle": "Add a new machine with specifications and images",
 			"machineName": "Machine Name",
 			"machineNamePlaceholder": "Enter machine name...",
@@ -716,7 +719,8 @@
 				"imageSize": "Each image must be less than 5MB",
 				"imageType": "Only image files are allowed",
 				"keyRequired": "Key required",
-				"valueRequired": "Value required"
+				"valueRequired": "Value required",
+				"descriptionRequired": "Description is required"
 			}
 		},
 		"delete": {
@@ -746,10 +750,13 @@
 			"updateMachine": "Update Machine",
 			"updating": "Updating...",
 			"removeImage": "Remove image",
+			  "machineDescription": "Machine Description",
+            "machineDescriptionPlaceholder": "Enter machine description...",
 			"validation": {
 			"nameRequired": "Name is required",
 			"keyRequired": "Key required",
-			"valueRequired": "Value required"
+			"valueRequired": "Value required",
+			"descriptionRequired": "Description is required"
 			}
 		},
 		"details": {
@@ -764,7 +771,9 @@
 			"noImageDescription": "This machine doesn't have an image",
 			"noSpecifications": "No specifications available",
 			"noSpecificationsDescription": "This machine doesn't have any specifications",
-			"close": "Close"
+			"close": "Close",
+			"machineDescription": "Description",
+            "noDescription": "No description available"
 		}
 	},
 	"users":{
@@ -1031,6 +1040,7 @@
 			"content": "Content"
 		},
 		"description": "Description",
+		"details":"Details",
 		"noDescription": "No description available for this content"
 	},
 	"common":{

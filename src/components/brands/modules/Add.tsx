@@ -69,30 +69,6 @@ export default function AddBrand({ isOpen, onOpenChange }: PopupAddProps) {
                 return true
             }, t("brands.add.imageType")),
     })
-    // const schema = z.object({
-    //     name: z.string().min(1, { message: "Brand name is required" }).max(100, { message: "Name is too long" }),
-    //     images: z.custom<FileList | null>()
-    //         .refine((files) => files && files.length > 0, 'At least one image is required')
-    //         .refine((files) => files && files.length <= 10, 'Maximum 10 images allowed')
-    //         .refine((files) => {
-    //             if (!files) return false;
-    //             for (let i = 0; i < files.length; i++) {
-    //                 if (files[i]?.size > 5 * 1024 * 1024) {
-    //                     return false
-    //                 }
-    //             }
-    //             return true
-    //         }, 'Each image must be less than 5MB')
-    //         .refine((files) => {
-    //             if (!files) return false;
-    //             for (let i = 0; i < files.length; i++) {
-    //                 if (!files[i]?.type.startsWith('image/')) {
-    //                     return false
-    //                 }
-    //             }
-    //             return true
-    //         }, 'Only image files are allowed'),
-    // })
 
     type FormDataPost = z.infer<typeof schema>
 

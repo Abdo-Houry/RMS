@@ -36,7 +36,7 @@ export function NavUser({
   }
 }) {
   const { isMobile } = useSidebar()
-  const {t} = useTranslation()
+  const { t } = useTranslation()
   // const { setTokens, clearTokens } = useAuth()
   const navigate = useNavigate()
   const handelLogOut = () => {
@@ -63,7 +63,7 @@ export function NavUser({
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
-                <span className="truncate text-xs">{user.email}</span>
+                <span className="truncate text-xs">{localStorage.getItem("username")}</span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -82,7 +82,7 @@ export function NavUser({
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs">{user.email}</span>
+                  <span className="truncate text-xs">{localStorage.getItem("username")}</span>
                 </div>
               </div>
             </DropdownMenuLabel>

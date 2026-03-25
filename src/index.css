@@ -302,3 +302,10 @@
 .dark .phone-input-custom {
   border-color: #1f2937;
 }
+
+button{
+  cursor: pointer;
+}
+input[type = "submit"]{
+  cursor: pointer;
+}

@@ -35,7 +35,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const data = {
     user: {
       name: "RMS",
-      email: localStorage.getItem("userRole") as string,
+      email: localStorage.getItem("username") as string,
       avatar: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNiNDRhMWQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS11dGVuc2lscy1pY29uIGx1Y2lkZS11dGVuc2lscyI+PHBhdGggZD0iTTMgMnY3YzAgMS4xLjkgMiAyIDJoNGEyIDIgMCAwIDAgMi0yVjIiLz48cGF0aCBkPSJNNyAydjIwIi8+PHBhdGggZD0iTTIxIDE1VjJhNSA1IDAgMCAwLTUgNXY2YzAgMS4xLjkgMiAyIDJoM1ptMCAwdjciLz48L3N2Zz4=",
     },
     teams: [
@@ -141,16 +141,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         permission: PERMISSIONS.MEAL_CATEGORIES.SHOW,
       },
       {
-        title: "sidebar.nav.machines",
-        url: "/machines",
-        icon: Cpu,
-        permission: PERMISSIONS.MACHINES.SHOW,
-      },
-      {
         title: "sidebar.nav.meals",
         url: "/meals",
         icon: Soup,
         permission: PERMISSIONS.MEALS.SHOW,
+      },
+      {
+        title: "sidebar.nav.machines",
+        url: "/machines",
+        icon: Cpu,
+        permission: PERMISSIONS.MACHINES.SHOW,
       },
       {
         title: "sidebar.nav.users",

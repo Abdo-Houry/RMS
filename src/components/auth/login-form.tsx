@@ -70,7 +70,7 @@ export default function LoginForm({
 
       if (response.data?.accessToken && response.data?.refreshToken) {
         const decodedToken = decodeJWT(response.data.accessToken);
-
+        
         if (decodedToken) {
           localStorage.setItem("userRole", decodedToken.role);
           localStorage.setItem("userId", decodedToken.nameid);
@@ -80,6 +80,7 @@ export default function LoginForm({
         }
         localStorage.setItem("accessToken", response.data.accessToken)
         localStorage.setItem("refreshToken", response.data.refreshToken)
+        localStorage.setItem("username", response.data.username)
         navigate("/")
       } else {
         setError("root", {
@@ -168,7 +169,7 @@ export default function LoginForm({
             <img
               src="/images/login.svg"
               alt={t('auth.imageAlt')}
-              className="absolute inset-0 h-full w-full object-contain dark:brightness-[0.2] dark:grayscale"
+              className="absolute inset-0 h-full w-full object-contain"
             />
           </div>
         </CardContent>

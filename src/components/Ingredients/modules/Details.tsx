@@ -598,7 +598,7 @@ export default function DetailsIngredient({ isOpen, onOpenChange, ingredientId }
                                                     {ingredient.details.map((d: any, i: number) => (
                                                         <tr
                                                             key={i}
-                                                            className="hover:bg-gray-50 transition-colors duration-150"
+                                                            className="transition-colors duration-150"
                                                         >
                                                             <td className="px-4 py-3 text-sm font-medium">
                                                                 {d.key}

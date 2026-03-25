@@ -29,6 +29,7 @@ interface DataTableProps {
     onPageChange: (page: number) => void;
     onSearch: (value: string) => void;
     onRoleFilter: (value: string) => void;
+    onDetails: (data: any) => void;
 }
 
 export function DataTable({
@@ -37,6 +38,7 @@ export function DataTable({
     pagination,
     onPageChange,
     onSearch,
+    onDetails
 }: DataTableProps) {
     const { t } = useTranslation();
     const table = useReactTable({
@@ -83,7 +85,9 @@ export function DataTable({
                     </thead>
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
-                            <tr key={row.id} className="border-b ">
+                            <tr key={row.id}
+                                className="border-b hover:bg-primary/10 transition-colors duration-200 cursor-pointer"
+                                onDoubleClick={() => onDetails(row.original)}>
                                 {row.getVisibleCells().map((cell) => (
                                     <td key={cell.id} className="p-2 align-middle">
                                         {/* {flexRender(cell.column.columnDef.cell, cell.getContext())} */}

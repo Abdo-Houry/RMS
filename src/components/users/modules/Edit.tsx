@@ -1044,7 +1044,7 @@ export default function EditUser({ isOpen, onOpenChange, userId }: EditUserProps
             const result = handleApiResponse(res);
 
             if (result.success) {
-                toast.success(t('users.edit.success'));
+                toast.success(result.error)
                 handleClose();
             } else {
                 toast.error(result.error || t('users.edit.error.updateFailed'));

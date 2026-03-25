@@ -63,6 +63,7 @@
 			"imagesLabel": "صور المقال",
 			"removeAll": "حذف الكل",
 			"clickToUpload": "انقر لتحميل الصور",
+			"clickToUploadVideos": "انقر لتحميل فيديو",
 			"uploadHelp": "يدعم: PNG، JPG، JPEG • الحد الأقصى: 5MB لكل صورة • الحد: 10 صور",
 			"imagesPreview": "معاينة الصور",
 			"selectedImages": "{{count}} صورة",
@@ -692,6 +693,8 @@
 		},
 		 "add": {
 			"title": "إضافة آلة جديدة",
+			 "machineDescription": "وصف الماكينة",
+            "machineDescriptionPlaceholder": "أدخل وصف تفصيلي للماكينة...",
 			"subtitle": "إضافة آلة جديدة بالمواصفات والصور",
 			"machineName": "اسم الآلة",
 			"machineNamePlaceholder": "أدخل اسم الآلة...",
@@ -715,7 +718,8 @@
 				"imageSize": "يجب أن يكون حجم كل صورة أقل من 5 ميجابايت",
 				"imageType": "يسمح فقط بملفات الصور",
 				"keyRequired": "المفتاح مطلوب",
-				"valueRequired": "القيمة مطلوبة"
+				"valueRequired": "القيمة مطلوبة",
+				"descriptionRequired": "الوصف مطلوب"
 			}
 		},
 		"delete": {
@@ -745,10 +749,13 @@
 			"updateMachine": "تحديث الآلة",
 			"updating": "جاري التحديث...",
 			"removeImage": "إزالة الصورة",
+			"machineDescription": "وصف الماكينة",
+            "machineDescriptionPlaceholder": "أدخل وصف الماكينة...",
 			"validation": {
 				"nameRequired": "الاسم مطلوب",
 				"keyRequired": "المفتاح مطلوب",
-				"valueRequired": "القيمة مطلوبة"
+				"valueRequired": "القيمة مطلوبة",
+				"descriptionRequired": "الوصف مطلوب"
 			}
 		},
 		"details": {
@@ -763,7 +770,9 @@
 			"noImageDescription": "هذه الآلة لا تحتوي على صورة",
 			"noSpecifications": "لا توجد مواصفات متاحة",
 			"noSpecificationsDescription": "هذه الآلة لا تحتوي على أي مواصفات",
-			"close": "إغلاق"
+			"close": "إغلاق",
+			"machineDescription": "الوصف",
+            "noDescription": "لا يوجد وصف متاح"
 		}
 	},
 	"users": {
@@ -1033,6 +1042,7 @@
 		"content": "محتوى"
 	},
 	"description": "الوصف",
+	"details":"التفاصيل",
 	"noDescription": "لا يوجد وصف متاح لهذا المحتوى"
 },
 "common":{

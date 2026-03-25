@@ -1612,7 +1612,7 @@ export default function AddUser({ isOpen, onOpenChange }: AddUserProps) {
             const result = handleApiResponse(res);
 
             if (result.success) {
-                toast.success(t('users.add.success'));
+                toast.success(result.error)
                 reset();
                 setSelectedPermissions([]);
                 setPhoneError("");

@@ -261,7 +261,9 @@ export function DataTable({
                     </thead>
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
-                            <tr key={row.id} className="border-b ">
+                            <tr key={row.id}
+                                className="border-b hover:bg-primary/10 transition-colors duration-200 cursor-pointer"
+                                onDoubleClick={() => onDetails(row.original)}>
                                 {row.getVisibleCells().map((cell) => (
                                     <td key={cell.id} className="p-2 text-center">
                                         {/* {flexRender(cell.column.columnDef.cell, cell.getContext())} */}
